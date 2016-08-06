@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require owl.carousel
+ *= require owl.theme
+ *= require 'masonry/centered'
+ *= require 'masonry/transitions'
+ */
+ 
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+	object-fit: cover;
+    height: auto;
+}
+.items{
+  width: 100%;
+ height: 100%;
+ overflow: hidden;
+ z-index: 20;
+ visibility: inherit;
+ opacity: 1;
+}#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: 100%; 
+}
+div.owl-prev,div.owl-next{
+  position: absolute;
+  top:30%;
+}div.owl-prev{
+  left: 0;
+}div.owl-next{
+  right: 0;
+}.owl-pagination{
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+}
+
+input[type=text], select {
+    width: 30%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	background-color: #f8f8f8;
+    box-sizing: border-box;
+}
+textarea {
+    width: 30%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+input[type=submit] {
+    width: fit;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------Wrapper------------------------------------- */
+
+div.wrapper{display:block; width:100%; margin:0; padding:0; text-align:left;}
+div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, div.wrapper h6{margin:0; padding:0 0 8px 0; font-size:20px; font-weight:normal; font-family:Georgia, "Times New Roman", Times, serif; border-bottom:1px dotted #4C4C4C;}
+/* ----------------------------------------------Intro------------------------------------- */
+
+#intro{padding:25px 0 15px 0;}
+#intro ul{margin:0; padding:0; list-style:none;}
+#intro li{display:block; float:left; width:200px; margin:0 100px 0 0; padding:0; object-fit: cover;}
+#intro li.last{margin-right:0;}
+#intro h2, #intro p, #intro img, #intro div{margin:0 0 20px 0; padding:0;}
+#intro h2{padding-bottom:8px; color:#FFFFFF; background-color:#131313; text-align:center;}

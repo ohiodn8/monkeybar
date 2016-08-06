@@ -1,0 +1,22 @@
+<div class="container">
+    <% @posts.each do |post| %>
+        <h3><%= link_to post.title.titleize, post %></h3>
+		<div class="box">
+		<%= link_to (image_tag post.image.url(:thumb), class: "image"), post %>
+		</div>
+		<p class="test">
+		<%= truncate post.body, length: 160 %>
+        <%= link_to 'read more', post %>
+		</p>
+      	<hr>  
+    <% end %>
+	<%= paginate @posts %>
+<br>
+</div>
+
+<style>
+p.test {
+    width: 400px;
+    word-break: keep-all;
+}
+</style>

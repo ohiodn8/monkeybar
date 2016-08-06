@@ -1,0 +1,79 @@
+<div class="container">
+<div style="float:left; width:40%">
+<h3>Send A message to Us</h3>
+<%= form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: "form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :message %><br>
+    <%= f.text_area :message, class: "form-control" %><br>
+  </div>
+  <div class= "hidden">
+  <div class="form-group">
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname, class: "form-control" %><br>
+  </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.submit "Send Message", class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>
+</div>
+
+<div style="float:right; width:40%">
+    <br><br>
+	<br>
+	<div class="box margin-bottom">
+    <strong>Corporate Office Address:</strong>
+	<p>123 adcd efgh, IJ 45678</p></br> 
+	
+	<strong>Phone:</strong>
+	<p>123-456-7890</p><br>
+	
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+<script>
+	var myCenter=new google.maps.LatLng(39.125298,-77.4097647);
+
+	function initialize()
+	{
+	var mapProp = {
+	  center:myCenter,
+	  zoom:14,
+	  mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	var marker=new google.maps.Marker({
+	  position:myCenter,
+	  });
+
+	marker.setMap(map);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:380px;height:220px;"></div>
+</body>
+	</div>
+  </div>
+</div>
+</div>
+
+<script>
+$('img').bind('contextmenu', function(e) {
+            return false;
+          });
+</script>

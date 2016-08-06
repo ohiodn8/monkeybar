@@ -1,0 +1,50 @@
+<div class="container">
+		<h3><%= @property.title %></h3>
+    <div class="col-sm-6 col-md-5">
+		<div class="row">
+		  <div class="col-md-4">
+			<%= image_tag @property.image.url(:medium), class: "image" %>
+			</div>
+		</div><br>
+		<% if admin_signed_in? %>
+		<button><%= link_to 'Edit', edit_property_path(@property) %></button> |
+		<button><%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+		<% end %>
+</div><br><br><br>
+<div class="col-sm-7 col-md-5">
+	   <h4>Information:</h4>
+	   <p>
+		  <strong>Size:</strong>
+		  <%= @property.size %> Sq/Fts
+		</p>
+
+		<p>
+		  <strong>Bedroom:</strong>
+		  <%= link_to @property.bedroom.name, bedroom_path(:id => @property.bedroom.id) %>
+		</p>
+
+		<p>
+		  <strong>Location:</strong>
+		  <%= link_to @property.location.name, location_path(:id => @property.location.id) %>
+		</p>
+
+		<p>
+		  <strong>Description:</strong><br>
+		  <%= @property.description %>
+		</p>
+	</div><br>
+</div>
+
+<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>  
+      <script type="text/javascript">
+         jQuery(document).ready(function($) {	  
+           $("#owl-demo").owlCarousel({		
+           });
+		   $(".itemsScaleUp-true").owlCarousel({
+            itemsScaleUp:true
+           });
+		  $('img').bind('contextmenu', function(e) {
+            return false;
+          }); 
+         });	 
+      </script>

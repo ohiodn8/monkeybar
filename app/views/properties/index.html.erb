@@ -1,0 +1,76 @@
+<body class="size-1120">
+      <section>
+         <!-- CAROUSEL --> 		 
+            <div id="owl-demo" class="owl-carousel owl-theme">
+			<div class="item"><img src="assets/zfirst2.jpg" alt=""></div>
+               <div class="item"><img src="assets/zliving2.jpg" alt=""></div>
+               <div class="item"><img src="assets/zbedroom.jpg" alt=""></div>
+               <div class="item"><img src="assets/zliving.jpg" alt=""></div>
+			   <div class="item"><img src="assets/zroyal.jpg" alt=""></div>
+            </div>
+		  </div>
+<div class="container">		 
+<div class="wrapper">
+  <div id="intro" align="center">
+    <ul>
+      <li>
+        <h2>Leasing</h2>
+        <p>We are a leading Leasing company, providing consulting and leasing services through our strategy, technology and resources</p>
+      </li>
+      <li>
+        <h2>Apartment</h2>
+        <p>No matter how you want to live, we have the capabilities and experience to build the home you need to move to today and tomorrow.</p>
+      </li>
+      <li>
+        <h2>Design</h2>
+        <p>Be the first to find out what's happening at MonkeyBar. We are always excited to give our clients and customers what's new...</p>
+      </li>
+	  <li class="last">
+        <h2>Our Office</h2>
+        <p>Be the first to find out Visit our office at Arlington, VA. We are always excited to see you, to chat over a cup of tea...</p>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <hr>
+</div>
+<br>
+
+<div class="container"> 
+	<div class="row"><br>
+		<% @properties.each do |property| %>
+		<div class="col-sm-3 col-md-3">
+		<div class="thumbnail">
+		  <%= link_to (image_tag property.image.url(:medium), class: "image"), property %>
+		
+			<h4><%= link_to property.title, property %></h4>
+			<span class="glyphicon glyphicon-road" aria-hidden="true"> <%= property.size %> Sq/Fts </br>
+			<span class="glyphicon glyphicon-bed" aria-hidden="true"></span> <%= property.bedroom.name %> </br>
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span> <%= property.location.name %> </br>
+			</div>
+			</div>
+		<% end %>
+	</div>
+	<br>
+	<%= paginate @properties %>
+	</section><br>
+</div>
+<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>  
+      <script type="text/javascript">
+         jQuery(document).ready(function($) {	  
+           $("#owl-demo").owlCarousel({		
+         	navigation : true,
+         	slideSpeed : 800,
+         	paginationSpeed : 550,
+         	autoPlay : true,
+         	singleItem:true
+           });
+		   $(".itemsScaleUp-true").owlCarousel({
+            itemsScaleUp:true
+           });
+		  $('img').bind('contextmenu', function(e) {
+            return false;
+          }); 
+         });	 
+      </script>
+</body>

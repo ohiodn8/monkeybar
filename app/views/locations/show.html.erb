@@ -1,0 +1,16 @@
+<div class="container">
+	<h2><%= @location.name %></h2>
+	<div class="row">
+	<% if @properties.each do |property| %>
+	  <div class="col-sm-3 col-md-3">
+	  <div class="thumbnail">
+		  <%= link_to (image_tag property.image.url(:medium), class: "image"), property %>
+	  </div>
+		  <h2><%= link_to property.title, property %></h2>
+	  </div>
+		<% end.empty? %>
+		<p> Sorry, there are currently no Properties in this Location. Please check back again! </p>
+	<% end %>
+	</div><br><br>
+	<div class="footer"><%= link_to "Back to Location", locations_path %></div>
+</div>

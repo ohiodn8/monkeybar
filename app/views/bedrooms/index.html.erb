@@ -1,0 +1,8 @@
+<div class="container">
+	<h2>Bedrooms</h2>
+		<% @bedrooms.each do |bedroom| %>
+			<h3><%= link_to bedroom.name, bedroom %></h3>
+		<% end %>
+	<br>
+</div>
+

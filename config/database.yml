@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  username: ************
+  password: ************
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: monkeybar_development
+  username: ************
+  password: ************
+
+  
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+#
+production:
+  <<: *default
+  database: monkeybar_production
+  username: ************
+  password: ************

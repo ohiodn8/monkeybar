@@ -1,0 +1,13 @@
+<div class="container"><h3><%= @post.title.titleize %></h3>
+	<div class="col-md-4">
+	  <%= image_tag @post.image.url(:medium) %>
+	</div>
+	<p class="small"></p>
+	<small>Submitted by <strong><%= @post.admin.name %></strong> <%=  time_ago_in_words(@post.created_at) %> ago</small>
+	<h5><%= @post.body %></h5><br><br>
+
+	<% if admin_signed_in? %>
+	  <%= link_to 'Edit', edit_post_path(@post) %> |
+	  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+</div>

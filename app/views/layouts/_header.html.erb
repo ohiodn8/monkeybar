@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "MonkeyBar", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+      <ul class="nav navbar-nav navbar-right">
+ <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Location <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/locations/1">District of Columbia</a></li>
+			<li role="separator" class="divider"></li>
+            <li><a href="/locations/2">Maryland</a></li>
+			<li role="separator" class="divider"></li>
+            <li><a href="/locations/3">Virginia</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bedroom <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bedrooms/1">Studio</a></li>
+			<li role="separator" class="divider"></li>
+            <li><a href="/bedrooms/2">1 Bedroom Apartment</a></li>
+			<li role="separator" class="divider"></li>
+            <li><a href="/bedrooms/3">2 Bedroom Apartment</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/bedrooms/4">3 Bedroom Apartment</a></li>
+          </ul>
+        </li>
+		<li><%= link_to "Blog", posts_path %></li>
+		<li><%= link_to "Contact", contacts_path %></li>
+		<li>
+		<%= search_form_for @q do |f| %>
+		<%= f.search_field :title_or_description_cont, placeholder: 'Search for Apartments' %>
+        <small><button><%= f.submit "search", class: "btn btn-sm" %></button></small>
+		<% end %>
+        </li> 
+      </ul>
+	  </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br><br></br><br>
+
+<% if admin_signed_in? %>
+<div class="container">
+<tr class="nav nav-pills">
+  <td><small><%= link_to "Account", edit_admin_registration_path, class: "btn btn-default btn-sm" %></small></td>
+  <td><small><%= link_to "Sign Out", destroy_admin_session_path, :method => :delete, class: "btn btn-default btn-sm" %><small></td>
+  <td><small><%= link_to "Submit Property", new_property_path, class: "btn btn-default btn-sm" %></small></td>
+  <td><small><%= link_to 'New Post', new_post_path, class: "btn btn-default btn-sm" %></small></td>
+</tr>
+<% else %>
+<div class= "hidden">
+<ul class="nav navbar-nav navbar-right">
+  <li><small><%= link_to "Sign In", new_admin_session_path, class: "btn btn-default btn-sm" %></small></li>
+</div>
+</ul>
+</div>
+<% end %>
+</div>

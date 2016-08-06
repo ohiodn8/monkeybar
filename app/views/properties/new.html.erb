@@ -1,0 +1,10 @@
+<% if admin_signed_in? %>
+<%= render 'form' %>
+<% else %>
+<div align="center">
+<br><br><br><br>
+<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+<h4>Admin Only!</h4>
+</div>
+<% end %>
+
